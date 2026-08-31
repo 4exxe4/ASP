@@ -1,0 +1,27 @@
+﻿@page "/power"
+@rendermode InteractiveServer
+
+@using System.Numerics;
+
+<h3>Power</h3>
+
+<label>Число:</label>
+<input type = "number" @bind = "number" />
+
+<label>Степень:</label>
+<input type="number" @bind = "degree" />
+
+<button @onclick = "Calculate">Рассчитать</button>
+
+<p>Результат: @result</p>
+@code 
+{
+	double number;
+	int degree;
+	double result;
+
+	void Calculate()
+	{
+		result = Math.Pow(number, degree);
+	}
+}

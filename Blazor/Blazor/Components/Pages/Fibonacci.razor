@@ -1,0 +1,36 @@
+﻿@page "/fibonacci"
+@rendermode InteractiveServer
+
+@using System.Numerics;
+
+<h3>Fibonacci</h3>
+
+<label>Количество чисел:</label>
+<input type="number" @bind="limit" />
+
+<button @onclick = "Calculate">Показать</button>
+
+<p>@result</p>
+
+@code 
+{
+	int limit;
+	string result = "";
+
+	void Calculate()
+	{
+		int a = 0;
+		int b = 1;
+
+		result = "";
+
+		for (int i = 0; i < limit; i++)
+		{
+			result += a + " ";
+
+			int next = a + b;
+			a = b;
+			b = next;
+		}
+	}
+}
