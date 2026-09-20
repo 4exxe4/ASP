@@ -18,7 +18,11 @@ namespace Academy.Models
         [Required]
         [DataType(DataType.Date)]
         public DateOnly birth_date { get; set; }
+
+        [EmailAddress]
         public string? email { get; set; }
+
+        [Phone]
         public string? phone { get; set; }
         [Column("photo", TypeName = "IMAGE")]
         public byte[]? photo { get; set; }
