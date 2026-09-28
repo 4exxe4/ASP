@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Academy.Models
 {
-    public class TeachersDisciplinesRelations
+    [PrimaryKey("teacher", "discipline")]
+    public class TeachersDisciplinesRelation
     {
         [Column("teacher", TypeName = "SMALLINT")]
         [ForeignKey(nameof(Teacher))]

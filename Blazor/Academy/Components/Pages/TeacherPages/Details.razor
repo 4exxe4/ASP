@@ -40,7 +40,7 @@
         </dl>
         <h3>Дисциплины</h3>
         <ul>
-            @foreach(TeachersDisciplinesRelations tdr in teacher.DisciplinesRelations)
+            @foreach(TeachersDisciplinesRelation tdr in teacher.DisciplinesRelations)
             {
                 <li>
                     <a href="@($"/disciplines/details?disciplines_id = {tdr.Discipline.discipline_id}")">@tdr.Discipline.discipline_name</a>
@@ -64,9 +64,9 @@
     {
         using var context = DbFactory.CreateDbContext();
         teacher = await context.Teachers
-        .Include(t => t.DisciplinesRelations)
-        .ThenInclude (tdr => tdr.Discipline)
-        .FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
+                                .Include(t => t.DisciplinesRelations)
+                                .ThenInclude (tdr => tdr.Discipline)
+                                .FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
 
         if (teacher is null)
         {
