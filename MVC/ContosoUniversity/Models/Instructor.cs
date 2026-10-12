@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ContosoUniversity.Models
@@ -30,6 +31,7 @@ namespace ContosoUniversity.Models
         }
 
         //TODO: Navigation properties:
-
+        public ICollection<CourseAssignment> CourseAssignments { get; set; }
+        public OfficeAssignment OfficeAssignment { get; set; }
     }
 }
